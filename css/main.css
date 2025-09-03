@@ -10,7 +10,7 @@ body {
 
 /* Ombre violette pour la barre de progression */
 .shadow-bar {
-  box-shadow: 0 0 24px 4px #ffb74d80, 0 0 0 2px #ff9800cc;
+  box-shadow: 0 0 24px 4px #00000000, 0 0 0 2px #00000000;
 }
 
 /* Item d’historique moderne */
