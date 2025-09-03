@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/vendor/tailwind-minimal.css">
     <script type="text/javascript">
       document.write(
         '<link rel="stylesheet" href="css/main.css?' + Math.random() + '">'
       );
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
+      media="print" 
+      onload="this.media='all'"
     />
+    <noscript>
+      <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+      </style>
+    </noscript>
     <link rel="icon" href="images/favicon.ico" />
     <meta name="description" content="Custom Garry's Mod loading screen" />
     <meta property="og:title" content="Loading Screen" />
@@ -121,9 +128,16 @@
       </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Librairie Anime.js pour les animations avancées -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <!-- Anime.js is optional - remove if not needed -->
+    <script>
+      // Try to load anime.js, but don't fail if it's not available
+      try {
+        document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"><\/script>');
+      } catch(e) {
+        console.log('Anime.js not available, continuing without it');
+      }
+    </script>
     <script type="text/javascript">
       document.write(
         '<script src="js/config.js?' + Math.random() + '"><\/script>'
