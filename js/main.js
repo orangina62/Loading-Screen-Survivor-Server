@@ -204,3 +204,128 @@ $(document).ready(function () {
     }
   }, 1000);
 });
+
+// Fallback initialization if jQuery is not available
+if (typeof $ === 'undefined') {
+  console.log('jQuery not available, using fallback initialization');
+  
+  // Basic fallback functions
+  window.$ = function(selector) {
+    if (selector === document) {
+      return {
+        ready: function(fn) {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fn);
+          } else {
+            fn();
+          }
+        }
+      };
+    }
+    
+    var elements = document.querySelectorAll(selector);
+    return {
+      fadeIn: function() {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.display = 'block';
+          elements[i].style.opacity = '1';
+        }
+        return this;
+      },
+      html: function(content) {
+        if (content !== undefined) {
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = content;
+          }
+          return this;
+        }
+        return elements[0] ? elements[0].innerHTML : '';
+      },
+      text: function(content) {
+        if (content !== undefined) {
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].textContent = content;
+          }
+          return this;
+        }
+        return elements[0] ? elements[0].textContent : '';
+      },
+      css: function(prop, value) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style[prop] = value;
+        }
+        return this;
+      },
+      attr: function(attr, value) {
+        if (value !== undefined) {
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].setAttribute(attr, value);
+          }
+          return this;
+        }
+        return elements[0] ? elements[0].getAttribute(attr) : '';
+      },
+      prepend: function(content) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].insertAdjacentHTML('afterbegin', content);
+        }
+        return this;
+      },
+      each: function(fn) {
+        for (var i = 0; i < elements.length; i++) {
+          fn.call(elements[i], i, elements[i]);
+        }
+        return this;
+      },
+      remove: function() {
+        for (var i = 0; i < elements.length; i++) {
+          if (elements[i].parentNode) {
+            elements[i].parentNode.removeChild(elements[i]);
+          }
+        }
+        return this;
+      },
+      hide: function() {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.display = 'none';
+        }
+        return this;
+      }
+    };
+  };
+  
+  // Initialize immediately
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Fallback initialization starting...');
+    loadBackground();
+    
+    // Show loading screen immediately
+    loadAll();
+    
+    // Initialize with default values
+    GameDetails("Servername", "Serverurl", "Mapname", "Maxplayers", "SteamID", "Gamemode");
+    
+    setTimeout(function() {
+      if (!isGmod) {
+        debug("No Garry's mod testing..");
+        isTest = true;
+        
+        var totalTestFiles = 100;
+        SetFilesTotal(totalTestFiles);
+        
+        var needed = totalTestFiles;
+        var testInterval = setInterval(function () {
+          if (needed > 0) {
+            needed = needed - 1;
+            SetFilesNeeded(needed);
+            DownloadingFile("Filename " + needed);
+          } else {
+            clearInterval(testInterval);
+          }
+        }, 500);
+        
+        SetStatusChanged("Testing..");
+      }
+    }, 1000);
+  });
+}

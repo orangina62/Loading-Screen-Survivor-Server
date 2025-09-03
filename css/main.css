@@ -81,9 +81,12 @@ body {
   animation: move3 40s linear infinite alternate;
 }
 
-nav,
-main {
+nav {
   display: none;
+}
+
+main {
+  display: flex; /* Show main by default instead of hiding it */
 }
 
 h2 {
@@ -98,7 +101,10 @@ h1 {
   font-size: 3em;
 }
 
-#title,
+#title {
+  display: block; /* Show title by default */
+}
+
 #map,
 #steamid {
   display: none;
