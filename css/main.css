@@ -1,0 +1,278 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  color: white;
+  background-color: black;
+}
+
+/* Opacité custom utilisée dans index.html */
+.opacity-15 { opacity: 0.15; }
+
+/* Ombre violette pour la barre de progression */
+.shadow-bar {
+  box-shadow: 0 0 16px 2px #8b5cf6, 0 0 0 1px #a78bfa;
+}
+
+/* Item d’historique moderne */
+.history-item-modern {
+  padding: 6px 10px;
+  margin: 4px 0;
+  background: rgba(24, 24, 27, 0.6);
+  border-left: 2px solid #8b5cf6;
+  border-radius: 2px;
+  color: #e5e7eb;
+  backdrop-filter: blur(6px);
+}
+
+/* Animations supplémentaires */
+@keyframes floaty {
+  0%   { transform: translate3d(-10px, -10px, 0) rotate(0deg); }
+  50%  { transform: translate3d(10px, 20px, 0) rotate(5deg); }
+  100% { transform: translate3d(-5px, 10px, 0) rotate(-3deg); }
+}
+@keyframes slowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.animate-shape-move { animation: floaty 18s ease-in-out infinite alternate; }
+.animate-shape-rotate { animation: slowRotate 22s linear infinite; }
+
+@keyframes subtitleIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-subtitle { animation: subtitleIn 600ms ease-out both 120ms; }
+
+@keyframes descIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-desc { animation: descIn 500ms ease-out both 200ms; }
+
+@keyframes glassPulse {
+  0%,100% { box-shadow: inset 0 0 0 0 rgba(139,92,246,.2); }
+  50%     { box-shadow: inset 0 0 20px 4px rgba(139,92,246,.25); }
+}
+.animate-bar-glass { animation: glassPulse 3.2s ease-in-out infinite; }
+
+/* Ajuste les blobs existants vers des teintes violettes */
+.shape.one {
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle at 30% 30%, #8b5cf6, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation: move1 30s linear infinite alternate;
+}
+.shape.two {
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle at 70% 70%, #a78bfa, transparent 70%);
+  bottom: -20%;
+  right: -15%;
+  animation: move2 35s linear infinite alternate;
+}
+.shape.three {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle at 50% 50%, #6d28d9, transparent 70%);
+  top: 20%;
+  right: -25%;
+  animation: move3 40s linear infinite alternate;
+}
+
+nav,
+main {
+  display: none;
+}
+
+h2 {
+  font-size: 2em;
+  color: rgb(250, 250, 250);
+  margin: 0;
+}
+
+h1 {
+  margin-top: 10px;
+  color: rgb(250, 250, 250);
+  font-size: 3em;
+}
+
+#title,
+#map,
+#steamid {
+  display: none;
+}
+
+#steamid {
+  float: right;
+}
+
+#announcement {
+  position: absolute;
+  width: 98%;
+  text-align: center;
+}
+
+#history {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  margin-top: 10px;
+  color: rgb(240, 240, 240);
+  text-shadow: none;
+}
+
+.background {
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-image: url("../images/default.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+
+.shape.one {
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle at 30% 30%, #8b5cf6, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation: move1 30s linear infinite alternate;
+}
+
+.shape.two {
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle at 70% 70%, #a78bfa, transparent 70%);
+  bottom: -20%;
+  right: -15%;
+  animation: move2 35s linear infinite alternate;
+}
+
+.shape.three {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle at 50% 50%, #6d28d9, transparent 70%);
+  top: 20%;
+  right: -25%;
+  animation: move3 40s linear infinite alternate;
+}
+
+@keyframes move1 {
+  from {
+    transform: translate(-20%, -20%);
+  }
+  to {
+    transform: translate(20%, 20%);
+  }
+}
+
+@keyframes move2 {
+  from {
+    transform: translate(40%, -30%);
+  }
+  to {
+    transform: translate(-40%, 30%);
+  }
+}
+
+@keyframes move3 {
+  from {
+    transform: translate(-10%, 40%);
+  }
+  to {
+    transform: translate(10%, -40%);
+  }
+}
+
+.overhaul {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition-duration: 1s;
+}
+
+.title {
+  text-align: center;
+  top: 40%;
+  width: 100%;
+  position: absolute;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.loading-box {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #3b82f6, 0 0 20px #a855f7;
+    color: #fff;
+  }
+  50% {
+    text-shadow: 0 0 20px #ec4899, 0 0 30px #a855f7;
+    color: #e2e8f0;
+  }
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background: linear-gradient(270deg, #3b82f6, #a855f7, #ec4899);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
