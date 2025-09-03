@@ -10,7 +10,7 @@ body {
 
 /* Ombre violette pour la barre de progression */
 .shadow-bar {
-  box-shadow: 0 0 16px 2px #8b5cf6, 0 0 0 1px #a78bfa;
+  box-shadow: 0 0 16px 2px #ff9800, 0 0 0 1px #ffb74d;
 }
 
 /* Item d’historique moderne */
@@ -18,7 +18,7 @@ body {
   padding: 6px 10px;
   margin: 4px 0;
   background: rgba(24, 24, 27, 0.6);
-  border-left: 2px solid #8b5cf6;
+  border-left: 2px solid #ff9800;
   border-radius: 2px;
   color: #e5e7eb;
   backdrop-filter: blur(6px);
@@ -55,11 +55,11 @@ body {
 }
 .animate-bar-glass { animation: glassPulse 3.2s ease-in-out infinite; }
 
-/* Ajuste les blobs existants vers des teintes violettes */
+/* Ajuste les blobs existants vers des teintes orange et noir */
 .shape.one {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at 30% 30%, #8b5cf6, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #ff9800, transparent 70%);
   top: -10%;
   left: -10%;
   animation: move1 30s linear infinite alternate;
@@ -67,7 +67,7 @@ body {
 .shape.two {
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 70% 70%, #a78bfa, transparent 70%);
+  background: radial-gradient(circle at 70% 70%, #ffb74d, transparent 70%);
   bottom: -20%;
   right: -15%;
   animation: move2 35s linear infinite alternate;
@@ -75,7 +75,7 @@ body {
 .shape.three {
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at 50% 50%, #6d28d9, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #212121, transparent 70%);
   top: 20%;
   right: -25%;
   animation: move3 40s linear infinite alternate;
@@ -154,7 +154,7 @@ h1 {
 .shape.one {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at 30% 30%, #8b5cf6, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #ff9800, transparent 70%);
   top: -10%;
   left: -10%;
   animation: move1 30s linear infinite alternate;
@@ -163,7 +163,7 @@ h1 {
 .shape.two {
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 70% 70%, #a78bfa, transparent 70%);
+  background: radial-gradient(circle at 70% 70%, #ffb74d, transparent 70%);
   bottom: -20%;
   right: -15%;
   animation: move2 35s linear infinite alternate;
@@ -172,7 +172,7 @@ h1 {
 .shape.three {
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at 50% 50%, #6d28d9, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #212121, transparent 70%);
   top: 20%;
   right: -25%;
   animation: move3 40s linear infinite alternate;
@@ -246,11 +246,11 @@ h1 {
 @keyframes glow {
   0%,
   100% {
-    text-shadow: 0 0 10px #3b82f6, 0 0 20px #a855f7;
+  text-shadow: 0 0 10px #ff9800, 0 0 20px #ffb74d;
     color: #fff;
   }
   50% {
-    text-shadow: 0 0 20px #ec4899, 0 0 30px #a855f7;
+  text-shadow: 0 0 20px #212121, 0 0 30px #ffb74d;
     color: #e2e8f0;
   }
 }
@@ -272,7 +272,7 @@ h1 {
 }
 
 .animate-gradient {
-  background: linear-gradient(270deg, #3b82f6, #a855f7, #ec4899);
+  background: linear-gradient(270deg, #ff9800, #ffb74d, #212121);
   background-size: 200% 200%;
   animation: gradientShift 5s ease infinite;
 }
