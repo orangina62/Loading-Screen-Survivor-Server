@@ -10,15 +10,15 @@ body {
 
 /* Ombre violette pour la barre de progression */
 .shadow-bar {
-  box-shadow: 0 0 16px 2px #ff9800, 0 0 0 1px #ffb74d;
+  box-shadow: 0 0 24px 4px #ffb74d80, 0 0 0 2px #ff9800cc;
 }
 
 /* Item d’historique moderne */
 .history-item-modern {
   padding: 6px 10px;
   margin: 4px 0;
-  background: rgba(24, 24, 27, 0.6);
-  border-left: 2px solid #ff9800;
+  background: rgba(34, 28, 20, 0.7);
+  border-left: 3px solid #ffb74d;
   border-radius: 2px;
   color: #e5e7eb;
   backdrop-filter: blur(6px);
@@ -50,8 +50,8 @@ body {
 .animate-desc { animation: descIn 500ms ease-out both 200ms; }
 
 @keyframes glassPulse {
-  0%,100% { box-shadow: inset 0 0 0 0 rgba(255,152,0,.2); }
-  50%     { box-shadow: inset 0 0 20px 4px rgba(255,152,0,.25); }
+  0%,100% { box-shadow: inset 0 0 0 0 rgba(255,183,77,.18); }
+  50%     { box-shadow: inset 0 0 32px 8px rgba(255,183,77,.32); }
 }
 .animate-bar-glass { animation: glassPulse 3.2s ease-in-out infinite; }
 
@@ -128,7 +128,7 @@ h1 {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: linear-gradient(135deg, #212121 0%, #ff9800 100%);
+  background: linear-gradient(135deg, #181818 0%, #ffb74d 100%);
 }
 
 .effects {
@@ -152,7 +152,7 @@ h1 {
 .shape.one {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at 30% 30%, #ff9800, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #ffb74d 40%, transparent 80%);
   top: -10%;
   left: -10%;
   animation: move1 30s linear infinite alternate;
@@ -161,7 +161,7 @@ h1 {
 .shape.two {
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 70% 70%, #ffb74d, transparent 70%);
+  background: radial-gradient(circle at 70% 70%, #ff9800 40%, transparent 80%);
   bottom: -20%;
   right: -15%;
   animation: move2 35s linear infinite alternate;
@@ -170,7 +170,7 @@ h1 {
 .shape.three {
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at 50% 50%, #212121, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #ff9800 20%, transparent 80%);
   top: 20%;
   right: -25%;
   animation: move3 40s linear infinite alternate;
@@ -244,11 +244,11 @@ h1 {
 @keyframes glow {
   0%,
   100% {
-  text-shadow: 0 0 10px #ff9800, 0 0 20px #ffb74d;
+  text-shadow: 0 0 16px #ffb74d, 0 0 32px #ff9800;
     color: #fff;
   }
   50% {
-  text-shadow: 0 0 20px #212121, 0 0 30px #ffb74d;
+  text-shadow: 0 0 24px #ff9800, 0 0 40px #ffb74d;
     color: #e2e8f0;
   }
 }
