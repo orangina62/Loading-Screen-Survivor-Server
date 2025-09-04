@@ -81,9 +81,12 @@ body {
   animation: move3 40s linear infinite alternate;
 }
 
-nav,
+nav {
+  display: block; /* Changed from none to block - nav should be visible */
+}
+
 main {
-  display: none;
+  display: flex; /* Changed from none to flex to match the flex classes in HTML */
 }
 
 h2 {
@@ -98,10 +101,13 @@ h1 {
   font-size: 3em;
 }
 
-#title,
+#title {
+  display: block; /* Changed from none - title should be visible */
+}
+
 #map,
 #steamid {
-  display: none;
+  display: block; /* Changed from none - these should be visible */
 }
 
 #steamid {

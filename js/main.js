@@ -10,6 +10,8 @@ var permanent = false; // ajout: évite l'erreur dans announce()
 
 /**
  * Gmod Called functions
+ * These functions are called by Garry's Mod loading system
+ * They must be available in the global scope
  */
 function GameDetails(
   servername,
@@ -31,17 +33,21 @@ function GameDetails(
   } else {
     $("#title").html(servername);
   }
-  $("#title").fadeIn();
+  $("#title").show(); // Use show() instead of fadeIn() for immediate visibility
 
   if (Config.enableMap) {
     $("#mapNameValue").text(mapname);
+    $("#mapName").show();
   }
 
   if (Config.enableSteamID) {
     $("#steamid").html(steamid);
+    $("#steamid").show();
   }
-  $("#steamid").fadeIn();
 }
+
+// Ensure functions are globally accessible for Garry's Mod
+window.GameDetails = GameDetails;
 
 function SetFilesTotal(total) {
   debug("SetFilesTotal called total: " + total);
@@ -57,6 +63,10 @@ function SetFilesNeeded(needed) {
     setLoad(sPercentage);
   }
 }
+
+// Ensure these functions are globally accessible for Garry's Mod
+window.SetFilesTotal = SetFilesTotal;
+window.SetFilesNeeded = SetFilesNeeded;
 
 function setLoad(percentage) {
   debug(percentage + "%");
@@ -111,12 +121,19 @@ function SetStatusChanged(status) {
   }
 }
 
+// Ensure these functions are globally accessible for Garry's Mod
+window.DownloadingFile = DownloadingFile;
+window.SetStatusChanged = SetStatusChanged;
+
 /**
  * External Functions
  */
 function loadAll() {
-  $("nav").fadeIn();
-  $("main").fadeIn();
+  $("nav").show();
+  $("main").show();
+  $("#title").show(); // Ensure title is visible
+  $("#mapName").show(); // Ensure map info is visible
+  $("#steamid").show(); // Ensure steamid is visible
 
   setTimeout(function () {
     debug("Checking if first time loading.. " + downloadingFileCalled);
@@ -155,6 +172,16 @@ function debug(message) {
 
 $(document).ready(function () {
   loadBackground();
+  
+  // Initialize basic elements immediately for better UX
+  loadAll();
+  
+  // Set default title if no title is configured
+  if (!Config.title) {
+    $("#title").html("Loading...");
+  } else {
+    $("#title").html(Config.title);
+  }
 
   if (
     Config.announceMessages &&
@@ -177,7 +204,8 @@ $(document).ready(function () {
     if (!isGmod) {
       debug("No Garry's mod testing..");
       isTest = true;
-      loadAll();
+      
+      // Don't call loadAll again since we already called it above
 
       GameDetails(
         "Servername",
