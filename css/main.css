@@ -8,17 +8,17 @@ body {
 /* Opacité custom utilisée dans index.html */
 .opacity-15 { opacity: 0.15; }
 
-/* Ombre violette pour la barre de progression */
+/* Ombre pour la barre de progression (adaptée au vert néon) */
 .shadow-bar {
-  box-shadow: 0 0 24px 4px #00000000, 0 0 0 2px #00000000;
-}   
+  box-shadow: 0 0 28px 6px rgba(0,255,122,0.12), 0 0 0 2px rgba(0,255,122,0.06);
+}
 
 /* Item d’historique moderne */
 .history-item-modern {
   padding: 6px 10px;
   margin: 4px 0;
   background: rgba(34, 28, 20, 0.7);
-  border-left: 3px solid #ffb74d;
+  border-left: 3px solid #00ff66;
   border-radius: 2px;
   color: #e5e7eb;
   backdrop-filter: blur(6px);
@@ -50,16 +50,16 @@ body {
 .animate-desc { animation: descIn 500ms ease-out both 200ms; }
 
 @keyframes glassPulse {
-  0%,100% { box-shadow: inset 0 0 0 0 rgba(255, 176, 58, 0.356); }
-  50%     { box-shadow: inset 0 0 32px 8px rgba(255,183,77,.32); }
+  0%,100% { box-shadow: inset 0 0 0 0 rgba(0,255,122,0.14); }
+  50%     { box-shadow: inset 0 0 42px 10px rgba(0,230,102,0.22); }
 }
 .animate-bar-glass { animation: glassPulse 3.2s ease-in-out infinite; }
 
-/* Ajuste les blobs existants vers des teintes orange et noir */
+/* Ajuste les blobs existants vers des teintes vert néon inspirées du logo */
 .shape.one {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at 30% 30%, #ff9800, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #00ff66 30%, rgba(0,255,102,0.6) 55%, transparent 75%);
   top: -10%;
   left: -10%;
   animation: move1 30s linear infinite alternate;
@@ -67,7 +67,7 @@ body {
 .shape.two {
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 70% 70%, #ffb74d, transparent 70%);
+  background: radial-gradient(circle at 70% 70%, #00d65a 28%, rgba(0,214,90,0.55) 52%, transparent 75%);
   bottom: -20%;
   right: -15%;
   animation: move2 35s linear infinite alternate;
@@ -75,7 +75,7 @@ body {
 .shape.three {
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at 50% 50%, #212121, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #002214 8%, rgba(0,140,60,0.25) 25%, transparent 75%);
   top: 20%;
   right: -25%;
   animation: move3 40s linear infinite alternate;
@@ -128,7 +128,7 @@ h1 {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: linear-gradient(135deg, #181818 0%, #ffb74d 100%);
+  background: linear-gradient(135deg, #050605 0%, #002212 60%, #00391f 100%);
 }
 
 .effects {
@@ -146,13 +146,13 @@ h1 {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.6;
+  opacity: 0.72;
 }
 
 .shape.one {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at 30% 30%, #ffb74d 40%, transparent 80%);
+  background: radial-gradient(circle at 30% 30%, #00ff66 36%, rgba(0,255,102,0.5) 60%, transparent 82%);
   top: -10%;
   left: -10%;
   animation: move1 30s linear infinite alternate;
@@ -161,7 +161,7 @@ h1 {
 .shape.two {
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 70% 70%, #ff9800 40%, transparent 80%);
+  background: radial-gradient(circle at 70% 70%, #00d65a 36%, rgba(0,214,90,0.45) 60%, transparent 82%);
   bottom: -20%;
   right: -15%;
   animation: move2 35s linear infinite alternate;
@@ -170,7 +170,7 @@ h1 {
 .shape.three {
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at 50% 50%, #ff9800 20%, transparent 80%);
+  background: radial-gradient(circle at 50% 50%, rgba(0,255,122,0.18) 12%, rgba(0,170,80,0.16) 28%, transparent 82%);
   top: 20%;
   right: -25%;
   animation: move3 40s linear infinite alternate;
@@ -208,7 +208,7 @@ h1 {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 10, 6, 0.46);
   transition-duration: 1s;
 }
 
@@ -244,17 +244,18 @@ h1 {
 @keyframes glow {
   0%,
   100% {
-  text-shadow: 0 0 16px #ffb74d, 0 0 32px #ff9800;
-    color: #fff;
+  text-shadow: 0 0 18px rgba(0,255,122,0.9), 0 0 36px rgba(0,214,90,0.7);
+    color: #eafff0;
   }
   50% {
-  text-shadow: 0 0 24px #ff9800, 0 0 40px #ffb74d;
-    color: #e2e8f0;
+  text-shadow: 0 0 30px rgba(0,214,90,0.9), 0 0 48px rgba(0,170,80,0.6);
+    color: #dfffe8;
   }
 }
 
 .glow-text {
   animation: glow 3s ease-in-out infinite;
+  color: #bfffe0;
 }
 
 @keyframes gradientShift {
@@ -270,7 +271,10 @@ h1 {
 }
 
 .animate-gradient {
-  background: linear-gradient(270deg, #ff9800, #ffb74d, #212121);
+  background: linear-gradient(270deg, #00ff66, #00d65a, #002214);
   background-size: 200% 200%;
   animation: gradientShift 5s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
