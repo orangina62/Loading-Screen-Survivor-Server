@@ -38,9 +38,16 @@ function GameDetails(
   }
 
   if (Config.enableSteamID) {
-    $("#steamid").html(steamid);
+    // Fallback si steamid vide / undefined
+    var safeSteamId = (steamid && steamid !== "undefined" && steamid !== "") ? steamid : "SteamID inconnu";
+    $("#steamid")
+      .text(safeSteamId)
+      .css({ color: "#ffffff" })
+      .attr("title", safeSteamId);
+    $("#steamid").fadeIn();
+  } else {
+    $("#steamid").hide();
   }
-  $("#steamid").fadeIn();
 }
 
 function SetFilesTotal(total) {

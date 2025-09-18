@@ -120,14 +120,14 @@ h1 {
 }
 
 #title,
-#map,
-#steamid {
+#map {
   display: none;
 }
 
-#steamid {
-  float: right;
-}
+/* SteamID caché par défaut pour permettre l'animation fadeIn dans GameDetails */
+#steamid { display: none; color: #fff; }
+
+#steamid { float: right; }
 
 #announcement {
   position: absolute;
