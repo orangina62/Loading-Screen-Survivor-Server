@@ -120,14 +120,14 @@ h1 {
 }
 
 #title,
-#map,
-#steamid {
+#map {
   display: none;
 }
 
-#steamid {
-  float: right;
-}
+/* SteamID affiché par défaut (plus besoin de fadeIn pour visibilité de test) */
+#steamid { display: block; color: #fff; }
+
+#steamid { float: right; }
 
 #announcement {
   position: absolute;
