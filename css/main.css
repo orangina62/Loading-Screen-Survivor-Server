@@ -124,8 +124,8 @@ h1 {
   display: none;
 }
 
-/* SteamID affiché par défaut (plus besoin de fadeIn pour visibilité de test) */
-#steamid { display: block; color: #fff; }
+/* SteamID caché par défaut pour permettre l'animation fadeIn dans GameDetails */
+#steamid { display: none; color: #fff; }
 
 #steamid { float: right; }
 
